@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Compass Worksheet</title>
+<style>
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7f9fc;
+    margin: 0;
+    padding: 1rem;
+    color: #222;
+  }
+  h1 {
+    text-align: center;
+    color: #004aad;
+    margin-bottom: 0.2em;
+  }
+  p.intro {
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1.5em;
+  }
+  form {
+    max-width: 1000px;
+    margin: auto;
+  }
+  .email-box {
+    text-align: center;
+    margin-bottom: 1.5em;
+  }
+  input[type="email"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 300px;
+  }
+  .compass {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+  .section {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .section h2 {
+    font-size: 1.3rem;
+    color: #004aad;
+    margin-bottom: 0.2em;
+  }
+  .section h2 span {
+    display: inline-block;
+    background: #004aad;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    margin-right: 6px;
+  }
+  .prompt {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 0.8em;
+  }
+  textarea {
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 80px;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .send-btn {
+    display: block;
+    margin: 2em auto;
+    background: #004aad;
+    color: white;
+    border: none;
+    padding: 0.9rem 1.4rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .send-btn:hover {
+    background: #003a8c;
+  }
+  footer {
+    max-width: 800px;
+    margin: 2em auto 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #444;
+  }
+  footer h3 {
+    color: #004aad;
+    margin-bottom: 0.3em;
+  }
+</style>
+</head>
+<body>
+  <h1>🧭 Career Compass Worksheet</h1>
+  <p class="intro">
+    Reflect on each element of your C.A.R.E.E.R. journey.  
+    Write down key thoughts, stories, or aspirations that highlight where you are — and where you’re heading.
+  </p>
+
+  <!-- Start of the form -->
+  <form id="compassForm" onsubmit="sendEmail(); return false;">
+    <div class="email-box">
+      <label for="email"><strong>Your Email:</strong></label><br>
+      <input type="email" id="email" placeholder="you@example.com" required>
+    </div>
+
+    <section class="compass">
+      <div class="section">
+        <h2><span>C</span>Choices</h2>
+        <p class="prompt">What recent career decision or turning point has shaped your path? What did you learn from it?</p>
+        <textarea id="choices" placeholder="My key choices..."></textarea>
+      </div>
+
+      <div class="section">
+        <h2><span>A</span>Ambitions</h2>
+        <p class="prompt">What are your aspirations for the year ahead? What does success look like for you?</p>
+        <textarea id="ambitions" placeholder="My goals & ambitions..."></textarea>
+      </div>
+
+      <div class="section">
+        <h2><span>R</span>Resources</h2>
+        <p class="prompt">What resources, skills, or people can help you grow or achieve your goals?</p>
+        <textarea id="resources" placeholder="Resources that support me..."></textarea>
+      </div>
+
+      <div class="section">
+        <h2><span>E</span>Experiences</h2>
+        <p class="prompt">Which past experiences have been most valuable for your growth? What future ones excite you?</p>
+        <textarea id="experiences" placeholder="My valuable experiences..."></textarea>
+      </div>
+
+      <div class="section">
+        <h2><span>E</span>Exposure</h2>
+        <p class="prompt">Who should know more about your work, potential, or ideas? How can you increase visibility?</p>
+        <textarea id="exposure" placeholder="People & platforms for visibility..."></textarea>
+      </div>
+
+      <div class="section">
+        <h2><span>R</span>Recovery</h2>
+        <p class="prompt">How do you sustain motivation and recharge your energy to stay at your best?</p>
+        <textarea id="recovery" placeholder="How I recharge & stay motivated..."></textarea>
+      </div>
+    </section>
+
+    <button type="submit" class="send-btn">📧 Send My Reflections</button>
+  </form>
+
+  <footer>
+    <h3>✨ Reflection:</h3>
+    <p>Which area feels strongest for you right now? Which one do you want to focus on for growth this year?</p>
+    <p><em>Tip:</em> Use these insights to fuel your goal‑setting conversations and personal development plan.</p>
+  </footer>
+
+  <script>
+    function sendEmail() {
+      const email = document.getElementById('email').value;
+      const choices = document.getElementById('choices').value;
+      const ambitions = document.getElementById('ambitions').value;
+      const resources = document.getElementById('resources').value;
+      const experiences = document.getElementById('experiences').value;
+      const exposure = document.getElementById('exposure').value;
+      const recovery = document.getElementById('recovery').value;
+
+      const subject = "My Career Compass Reflections";
+      const body = 
+`Hello,
+
+Here are my Career Compass reflections:
+
+Choices:
+${choices}
+
+Ambitions:
+${ambitions}
+
+Resources:
+${resources}
+
+Experiences:
+${experiences}
+
+Exposure:
+${exposure}
+
+Recovery:
+${recovery}
+
+Thank you!`;
+
+      // opens their default email app with all data filled in
+      const mailtoURL = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoURL;
+    }
+  </script>
+</body>
+</html>
